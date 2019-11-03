@@ -93,6 +93,10 @@ Install dependencies (replace "Server with GUI" with "Workstation" for RHEL 8 Wo
 dnf groupinstall "Server with GUI" "base-x" "Legacy X Window System Compatibility" "Development Tools"
 dnf install elfutils-libelf-devel "kernel-devel-uname-r == $(uname -r)"
 ```
+If you are planning to install 32-bit support, add
+```
+dnf install libglvnd-opengl.i686
+```
 
 Back up and rebuild your `initramfs`
 ```
