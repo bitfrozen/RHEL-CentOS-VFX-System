@@ -18,7 +18,7 @@ Update to latest packages
 dnf upgrade
 ```
 
-# 1b. Update fresh system install (Centos edition)
+# 1b. Update fresh system install (CentOS edition)
 **Run these steps as root or use `sudo` for all commands**
 
 Update to latest packages
@@ -156,17 +156,12 @@ gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
 
 Install chrome
 ```
-yum install google-chrome-stable
+sudo dnf install google-chrome-stable
 ```
 
 To update run
 ```
-yum update google-chrome-stable
-```
-
-To start chrome with user permissions
-```
-google-chrome &
+sudo dnf update google-chrome-stable
 ```
 
 # Installing Visual Studio Code (with repo)
