@@ -37,7 +37,7 @@ With file content
 [ req ]
 default_bits = 4096
 distinguished_name = req_distinguished_name
-prompt = yes
+prompt = no
 string_mask = utf8only
 x509_extensions = myexts
 
