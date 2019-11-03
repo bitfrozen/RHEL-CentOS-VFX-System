@@ -1,4 +1,4 @@
-# 1. Update fresh system install (RHEL edition)
+# 1a. Update fresh system install (RHEL edition)
 **Run these steps as root or use `sudo` for all commands**
 
 Setup RedHat subscription
@@ -16,8 +16,12 @@ Update to latest packages
 dnf upgrade
 ```
 
-# 1. Update fresh system install (Centos edition)
+# 1b. Update fresh system install (Centos edition)
+**Run these steps as root or use `sudo` for all commands**
+
+Update to latest packages
 ```
+dnf upgrade
 ```
 
 # 2. Create certificate for module signing
