@@ -1,3 +1,5 @@
+This document is targeted at RHEL/CentOS 8 edition.
+
 # 1a. Update fresh system install (RHEL edition)
 **Run these steps as root or use `sudo` for all commands**
 
