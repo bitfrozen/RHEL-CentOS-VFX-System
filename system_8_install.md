@@ -18,6 +18,7 @@ Update to latest packages
 dnf upgrade
 ```
 
+
 # 1b. Update fresh system install (CentOS edition)
 **Run these steps as root or use `sudo` for all commands**
 
@@ -25,6 +26,7 @@ Update to latest packages
 ```
 dnf upgrade
 ```
+
 
 # 2. Create certificate for module signing
 **Run these steps as root or use `sudo` for all commands**
@@ -74,6 +76,7 @@ Check, that certificate is succesfully loaded
 ```
 keyctl list %:.platform
 ```
+
 
 # 3. Install Nvidia drivers
 **Run these steps as root or use `sudo` for all commands**
@@ -137,6 +140,7 @@ Sources used:
 - https://gist.github.com/geordanr/5018ad99b7466ac0a446dacdafe739ff
 - https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Kernel_Administration_Guide/sect-signing-kernel-modules-for-secure-boot.html
 
+
 # Installing Google Chrome (with repo)
 
 Create repo file 
@@ -164,6 +168,7 @@ To update run
 sudo dnf update google-chrome-stable
 ```
 
+
 # Installing Visual Studio Code (with repo)
 
 Import Microsoft GPG key
@@ -189,6 +194,45 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 Install code
 ```
 sudo dnf install code
+```
+
+
+# Adding EPEL (Extra Packages for Enterprise Linux) repository (CentOS edition)
+
+Enable the PowerTools repository since EPEL packages may depend on packages from it.
+```
+sudo dnf config-manager --set-enabled PowerTools
+```
+
+Add EPEL repo
+```
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+
+# Adding EPEL (Extra Packages for Enterprise Linux) repository (RHEL edition)
+
+Enable the codeready-builder-for-rhel-8-\*-rpms repository since EPEL packages may depend on packages from it
+```
+sudo subscription-manager repos --enable "codeready-builder-for-rhel-8-*-rpms"
+```
+
+Add EPEL repo
+```
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+# Adding RPM Fusion repository
+
+Before adding RPM Fusion repository, make sure to add EPEL repo. Add both free and non-free repositories.
+
+```
+sudo dnf install --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
+```
+
+*Optional* Add "tainted" RPM Fusion repos [Free](https://rpmfusion.org/FAQ#Free_Tainted)/[Nonfree](https://rpmfusion.org/FAQ#Nonfree_Tainted)
+```
+sudo dnf install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
 ```
 
 # Installing VLC (adding RPM Fusion)
