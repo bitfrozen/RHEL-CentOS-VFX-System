@@ -93,10 +93,6 @@ Install dependencies (replace "Server with GUI" with "Workstation" for RHEL 8 Wo
 dnf groupinstall "Server with GUI" "base-x" "Legacy X Window System Compatibility" "Development Tools"
 dnf install elfutils-libelf-devel "kernel-devel-uname-r == $(uname -r)"
 ```
-If you are planning to install NVIDIA's 32-bit compatibility libraries, add 32bit opengl lib.
-```
-dnf install libglvnd-opengl.i686
-```
 
 Back up and rebuild your `initramfs`
 ```
@@ -123,6 +119,7 @@ Install the driver. If not sure, let driver set X configuration.
 ```
 sh ./NVIDIA-Linux-x86_64-430.50.run --module-signing-secret-key=/root/private_nvidia.priv --module-signing-public-key=/root/public_nvidia.der
 ```
+If setup won't be able to load libOpenGL.so.0, choose to reinstall libvnd 
 
 Test new driver
 ```
