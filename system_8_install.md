@@ -230,9 +230,14 @@ Before adding RPM Fusion repository, make sure to add EPEL repo. Add both free a
 sudo dnf install --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm
 ```
 
-*Optional* Add "tainted" RPM Fusion repos [Free](https://rpmfusion.org/FAQ#Free_Tainted)/[Nonfree](https://rpmfusion.org/FAQ#Nonfree_Tainted)
+*Optional:* add "tainted" RPM Fusion repos [Free](https://rpmfusion.org/FAQ#Free_Tainted)/[Nonfree](https://rpmfusion.org/FAQ#Nonfree_Tainted)
 ```
 sudo dnf install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
 ```
 
-# Installing VLC (adding RPM Fusion)
+# Installing VLC
+
+Install VLC
+```
+sudo dnf install vlc
+```
