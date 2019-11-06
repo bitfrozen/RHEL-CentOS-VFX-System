@@ -48,41 +48,45 @@ Download Nvidia drivers into root home dir and set them as executable
 chmod +x NVIDIA-$version.run
 ```
 
-Blacklist nouveau module
+Blacklist nouveau module in GRUB by editing grub file
+```
+vim /etc/default/grub
+```
+Append the following to "GRUB_CMDLINE_LINUX"
+```
+rd.driver.blacklist=nouveau nouveau.modeset=0
+```
+Also disable module loading
 ```
 echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
 ```
-
-Install dependencies (replace "Server with GUI" with "Workstation" for RHEL 8 Workstation)
+Rebuild GRUB file
 ```
-dnf groupinstall "Server with GUI" "base-x" "Legacy X Window System Compatibility" "Development Tools"
-dnf install elfutils-libelf-devel "kernel-devel-uname-r == $(uname -r)"
+grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 ```
-
 Back up and rebuild your `initramfs`
 ```
 mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
 dracut -f
 ```
-
-Change the default `runlevel`
+Change the default `runlevel` to text mode
 ```
 systemctl set-default multi-user.target
 ```
-
 Reboot system
 ```
 reboot
 ```
 
-Set environment variable `KBUILD_SIGN_PIN` with password you used to sign your key
+Install dependencies (replace "Server with GUI" with "Workstation" for RHEL 8 Workstation)
 ```
-export KBUILD_SIGN_PIN=your_password
+yum -y groupinstall "GNOME Desktop" "Development Tools"
+yum -y install kernel-devel
 ```
 
-Install the driver. If not sure, let driver set X configuration.
+Install NVIDIA driver. If you have SecureBoot enabled, let NVIDIA generate and sign modules. Note certificate location and after installation is finished import it into MOK using `mokutil --import`
 ```
-sh ./NVIDIA-Linux-x86_64-430.50.run --module-signing-secret-key=/root/private_nvidia.priv --module-signing-public-key=/root/public_nvidia.der
+sh ./NVIDIA-Linux-x86_64-430.50.run
 ```
 If setup won't be able to load libOpenGL.so.0, choose to reinstall libvnd 
 
