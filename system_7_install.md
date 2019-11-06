@@ -195,6 +195,8 @@ Install VLC
 ```
 sudo yum install vlc
 ```
+
+
 # Installing Git >2.0 (3rd party repo)
 
 Remove existing git installation (1.8) and install git >2.0
@@ -202,4 +204,14 @@ Remove existing git installation (1.8) and install git >2.0
 sudo yum remove git
 sudo rpm -U https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum install git2u
+```
+
+
+# Installing Sublime merge
+
+Add sublime repo and install
+```
+sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+sudo yum install sublime-merge
 ```
