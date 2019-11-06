@@ -195,3 +195,11 @@ Install VLC
 ```
 sudo yum install vlc
 ```
+# Installing Git >2.0 (3rd party repo)
+
+Remove existing git installation (1.8) and install git >2.0
+```
+sudo yum remove git
+sudo rpm -U https://centos7.iuscommunity.org/ius-release.rpm
+sudo yum install git2u
+```
