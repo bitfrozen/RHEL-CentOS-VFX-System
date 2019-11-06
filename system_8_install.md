@@ -57,17 +57,17 @@ subjectKeyIdentifier=hash
 authorityKeyIdentifier=keyid
 ```
 
-Create certificate (you'll be asked for password to sign your key, remember it)
+Create certificate
 ```
-openssl req -x509 -new -utf8 -sha256 -days 36500 -batch -config /root/nvidia_ssl_configuration.config -outform DER -out /root/public_nvidia.der -keyout /root/private_nvidia.priv
+openssl req -x509 -new -nodes -utf8 -sha256 -days 36500 -batch -config /root/nvidia_ssl_configuration.config -outform DER -out /root/public_nvidia.der -keyout /root/private_nvidia.priv
 ```
 
-Import certificate into keyring
+Import certificate into keyring. During import process you'll be asked to create password for import. Remember it, you'll used it in the next step.
 ```
 mokutil --import /root/public_nvidia.der
 ```
 
-Restart system and load certificate into MOK database (pay attention - MOK prompt stays open only for 10s).
+Restart system and load certificate into MOK database (pay attention - MOK prompt stays open only for 10s). You'll be asked for password you created in previous step.
 ```
 reboot
 ```
