@@ -107,6 +107,15 @@ Sources used:
 - https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Kernel_Administration_Guide/sect-signing-kernel-modules-for-secure-boot.html
 
 
+# 4. Install Nvidia CUDA toolkit
+**Run these steps as root or use `sudo` for all commands**
+
+Download the latest CUDA Toolkit (runfile installer option) from
+```
+https://developer.nvidia.com/cuda-downloads
+```
+
+
 # Installing Google Chrome (with repo)
 
 Create repo file 
@@ -214,4 +223,12 @@ Add sublime repo and install
 sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 sudo yum install sublime-merge
+```
+
+
+# Installing Resolve 16.1
+
+Additional requierments
+```
+sudo yum install mesa-libGLU
 ```
